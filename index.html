@@ -6,9 +6,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saurabh's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-XYZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-XYZ" crossorigin="anonymous" />
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            margin: 10px 0;
+        }
+
+        .about,
+        .portfolio,
+        .contact,
+        .skills {
+            padding: 40px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .class-item {
+            margin-bottom: 40px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 40px;
+            border: 1px solid #770909;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgb(221, 218, 218);
+            box-shadow: 0 2px 4px rgba(205, 198, 198, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-item img {
+            width: 200px;
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .skills li {
+            margin: 0 10px 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .contact p {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 15px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                background-color: #333;
+            }
+
+            nav ul.show {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            /* ...existing media query styles... */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        a[href^="https://www.instagram.com/"] {
+            text-decoration: none;
+            
+        }
+
+        a[href^="https://www.instagram.com/"] img {
+            width: 70px; /* Adjust the width as needed */
+            height: 70px; /* Adjust the height as needed */
+            border-radius: 40%; /* Makes the icon circular, adjust as needed */
+        }
+       
+    </style>
 </head>
 
 <body>
+    
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
         <div class="container">
             <h1>Saurabh Vaste</h1>
@@ -16,46 +241,82 @@
         </div>
     </header>
 
-    <section class="about">
+    <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
-            <p>Hello, I'm Saurabh Vaste, a passionate and results-driven individual with a keen interest in technology and innovation. As a software engineer, I thrive on challenges and am dedicated to continuous learning. With a solid foundation in python, HTML, CSS, database , I am committed to delivering high-quality results in every project I undertake.</p>
+            <div class="about-item">
+                <p>Hello, I'm Saurabh Vaste, a passionate and results-driven individual with a keen interest in technology and innovation. As a software engineer, I thrive on challenges and am dedicated to continuous learning. With a solid foundation in Python, HTML, CSS, database, I am committed to delivering high-quality results in every project I undertake.</p>
+            </div>
         </div>
     </section>
 
-    <section class="portfolio">
+    <section id="portfolio" class="portfolio">
         <div class="container">
             <h2>Portfolio</h2>
             <div class="portfolio-item">
-                <img src="port-scanning.png" alt="Project 1">
+                <img src="./images/port-scanning.png" alt="Project 1">
                 <h3>Port Scanning</h3>
                 <p>As a cybersecurity enthusiast and IT professional, I have experience in port scanning, a crucial aspect of network security. Proficient in using tools such as Nmap and Nessus, I conducted thorough port scans to identify open ports, services, and potential vulnerabilities within network infrastructures. This involved analyzing scan results, assessing security postures, and recommending mitigation strategies. My expertise in port scanning contributes to a proactive approach to network defense, ensuring robust security measures are in place to safeguard against potential threats and unauthorized access.</p>
             </div>
 
             <div class="portfolio-item">
-                <img src="coffee-vending-machine.jpeg" alt="Project 2">
+                <img src="./images/coffee-vending-machine.jpeg" alt="Project 2">
                 <h3>Coffee Vending Machine using Python</h3>
                 <p>As a Python developer, I designed and implemented a Coffee Vending Machine application, showcasing my proficiency in software development. This project involved creating a user-friendly interface, managing inventory, and integrating payment processing. I utilized Python's object-oriented programming principles to enhance modularity and maintainability. The project demonstrated my ability to solve real-world problems, implement efficient algorithms, and contribute to a seamless user experience.</p>
             </div>
             <!-- Add more portfolio items as needed -->
         </div>
+       
     </section>
 
-    <section class="contact">
+    <section id="skills" class="skills">
         <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>HTML5 & CSS3</li>
+                <li>Operating System</li>
+                <li>Database Management (SQL, MongoDB)</li>
+                <li>Network Security</li>
+                <!-- Add more skills as needed -->
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        
+        <div class="container">
+            
             <h2>Contact</h2>
             <p>Email: <a href="mailto:vastesaurabh@gmail.com">vastesaurabh@gmail.com</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/saurabh-vaste-58b458271/" target="_blank">linkedin.com/in/Saurabhvaste</a></p>
             <p>GitHub: <a href="https://github.com/Saurabh-1803" target="_blank">github.com/Saurabh-1803</a></p>
-            <p>My Website: <a href = "https://saurabh-1803.github.io/my-website/"> My Website</a></p>
+            <!-- Move the social-icons div here -->
+           <div class="insta">
+            <a href="https://www.instagram.com/Saurabh_vaste45" target="_blank" rel="noopener noreferrer">
+                <img src="./images/insta.png" alt="Instagram">
+            </a>
         </div>
+        </div>
+       
     </section>
 
     <footer>
+        
         <div class="container">
             <p>&copy; 2023 Saurabh Vaste. All rights reserved.</p>
         </div>
+       
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navUl = document.querySelector('nav ul');
+            const menuIcon = document.querySelector('.menu-icon');
+            navUl.classList.toggle('show');
+            menuIcon.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
